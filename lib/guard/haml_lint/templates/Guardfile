@@ -1,0 +1,4 @@
+guard :haml_lint do
+  watch(%r{.+\.html.*\.haml$})
+  watch(%r{(?:.+/)?\.haml-lint\.yml$}) { |m| File.dirname(m[0]) }
+end
