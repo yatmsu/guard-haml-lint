@@ -84,7 +84,7 @@ module Guard
     end
 
     private
-    # Watcher.match_files(self, Dir.glob("#{@options[:haml_dires]}/**/*.haml"))
+
     def run(_paths = [])
       Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
 
@@ -95,7 +95,7 @@ module Guard
         command.concat _paths
       end
 
-			throw :task_has_failed unless system(*command)
+      throw :task_has_failed unless system(*command)
     end
 
     # @return [Array<String>] haml directory paths
