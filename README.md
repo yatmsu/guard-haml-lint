@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yatmsu/guard-haml-lint.svg)](https://travis-ci.org/yatmsu/guard-haml-lint)
+
 # Guard::HamlLint
 
 A guard to lint your Haml.
