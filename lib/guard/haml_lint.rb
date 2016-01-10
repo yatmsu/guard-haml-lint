@@ -86,12 +86,12 @@ module Guard
     private
 
     def run(_paths = [])
-      Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
-
       command = ['haml-lint']
       if _paths.empty?
+        Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
         command.concat @options[:haml_dires]
       else
+        Guard::Compat::UI.info "Running HAML-Lint for some of the haml files: #{_paths.join('\n')}"
         command.concat _paths
       end
 
