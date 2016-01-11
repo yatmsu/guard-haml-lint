@@ -1,0 +1,7 @@
+LineLength:
+  Max: 100
+
+RegexpLiteral:
+  Exclude:
+    - '**/*.gemspec'
+    - '**/Guardfile'

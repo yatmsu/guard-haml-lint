@@ -43,5 +43,4 @@ describe Guard::HamlLint do
 
   xdescribe '#run_on_removals' do
   end
-
 end

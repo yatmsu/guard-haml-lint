@@ -1,8 +1,8 @@
 require 'guard/compat/plugin'
 
 module Guard
+  # This class is Guard plugin
   class HamlLint < Plugin
-
     DEFAULT_OPTIONS = {
       all_on_start: true
     }
@@ -10,7 +10,8 @@ module Guard
     attr_reader :options
 
     # Initializes a Guard plugin.
-    # Don't do any work here, especially as Guard plugins get initialized even if they are not in an active group!
+    # Don't do any work here,
+    # especially as Guard plugins get initialized even if they are not in an active group!
     #
     # @param [Hash] options the custom Guard plugin options
     # @option options [Array<Guard::Watcher>] watchers the Guard plugin file watchers
@@ -19,9 +20,7 @@ module Guard
     #
     def initialize(options = {})
       super
-      @options = DEFAULT_OPTIONS
-                   .merge({ haml_dires: default_haml_dirs })
-                   .merge(options)
+      @options = DEFAULT_OPTIONS.merge(haml_dires: default_haml_dirs).merge(options)
     end
 
     # Called once when Guard starts. Please override initialize method to init stuff.
@@ -34,7 +33,8 @@ module Guard
     end
 
     # Called when `reload|r|z + enter` is pressed.
-    # This method should be mainly used for "reload" (really!) actions like reloading passenger/spork/bundler/...
+    # This method should be mainly used for "reload" (really!)
+    # actions like reloading passenger/spork/bundler/...
     #
     # @raise [:task_has_failed] when reload has failed
     # @return [Object] the task result
@@ -85,14 +85,14 @@ module Guard
 
     private
 
-    def run(_paths = [])
+    def run(paths = [])
       command = ['haml-lint']
-      if _paths.empty?
+      if paths.empty?
         Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
         command.concat @options[:haml_dires]
       else
-        Guard::Compat::UI.info "Running HAML-Lint for some of the haml files: #{_paths.join('\n')}"
-        command.concat _paths
+        Guard::Compat::UI.info "Running HAML-Lint for some of the haml files: #{paths.join('\n')}"
+        command.concat paths
       end
 
       throw :task_has_failed unless system(*command)
@@ -101,8 +101,7 @@ module Guard
     # @return [Array<String>] haml directory paths
     #
     def default_haml_dirs
-      File.exists?('app/views') ? ['app/views'] : ['.']
+      File.exist?('app/views') ? ['app/views'] : ['.']
     end
-
   end
 end
