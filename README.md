@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/guard-haml_lint.svg)](https://badge.fury.io/rb/guard-haml_lint)
+[![Dependency Status](https://www.versioneye.com/ruby/guard-haml_lint/0.1.0/badge?style=flat)](https://www.versioneye.com/ruby/guard-haml_lint/0.1.0)
 [![Build Status](https://travis-ci.org/yatmsu/guard-haml-lint.svg)](https://travis-ci.org/yatmsu/guard-haml-lint)
 [![Code Climate](https://codeclimate.com/github/yatmsu/guard-haml-lint/badges/gpa.svg)](https://codeclimate.com/github/yatmsu/guard-haml-lint)
 
