@@ -26,7 +26,28 @@ describe Guard::HamlLint do
     end
   end
 
-  xdescribe '#start' do
+  describe '#start' do
+    before do
+      allow(File).to receive(:exist?).with('app/views').and_return(true)
+    end
+
+    context 'when :all_on_start option is enabled' do
+      let(:options) { { all_on_start: true } }
+
+      it 'runs all' do
+        expect(subject).to receive(:run_all)
+        subject.start
+      end
+    end
+
+    context 'when :all_on_start option is disabled' do
+      let(:options) { { all_on_start: false } }
+
+      it 'does nothing' do
+        expect(subject).not_to receive(:run_all)
+        subject.start
+      end
+    end
   end
 
   xdescribe '#reload' do
