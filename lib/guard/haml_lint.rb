@@ -5,7 +5,7 @@ module Guard
   class HamlLint < Plugin
     DEFAULT_OPTIONS = {
       all_on_start: true
-    }
+    }.freeze
 
     attr_reader :options
 
