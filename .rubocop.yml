@@ -5,3 +5,7 @@ RegexpLiteral:
   Exclude:
     - '**/*.gemspec'
     - '**/Guardfile'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
