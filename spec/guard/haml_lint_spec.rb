@@ -56,7 +56,8 @@ describe Guard::HamlLint do
     end
   end
 
-  xdescribe '#reload' do
+  describe '#reload' do
+    it { expect(subject.reload).to eq nil }
   end
 
   xdescribe '#run_all' do
