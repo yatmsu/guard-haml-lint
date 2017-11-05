@@ -1,8 +1,13 @@
 # Changelog
 
+## v0.3.0
+
+* Changed not to run when Guard run_on_removals
+
 ## v0.2.0
 
 * Changed not to run when Guard reload
+* Required Ruby Version '>= 2.2.6'
 
 ## v0.1.4
 

@@ -69,6 +69,7 @@ describe Guard::HamlLint do
   xdescribe '#run_on_modifications' do
   end
 
-  xdescribe '#run_on_removals' do
+  describe '#run_on_removals' do
+    it { expect(subject.reload).to eq nil }
   end
 end

@@ -73,16 +73,17 @@ module Guard
 
     # Called on file(s) removals that the Guard plugin watches.
     #
-    # @param [Array<String>] paths the changes files or paths
-    # @raise [:task_has_failed] when run_on_removals has failed
-    # @return [Object] the task result
+    # @return [nil]
     #
     def run_on_removals(paths)
-      run(paths)
     end
 
     private
 
+    # @param [Array<String>] paths the changes files or paths
+    # @raise [:task_has_failed] when run_on_additions has failed
+    # @return [Object] the task result
+    #
     def run(paths = [])
       command = ['haml-lint']
       if paths.empty?
