@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Guard::HamlLint do
-  subject { Guard::HamlLint.new(options) }
-  let(:options) { {} }
+  subject { described_class.new(options) }
+  let(:options) { { all_on_start: true } }
 
   describe '#initialize' do
     context 'when default initialized' do
@@ -28,12 +28,7 @@ describe Guard::HamlLint do
 
   describe '#start' do
     context 'when :all_on_start option is enabled' do
-      let(:options) do
-        {
-          all_on_start: true,
-          haml_dires: ['spec/views']
-        }
-      end
+      let(:options) { { all_on_start: true } }
 
       it 'call #run' do
         expect(subject).to receive(:run)
@@ -42,12 +37,7 @@ describe Guard::HamlLint do
     end
 
     context 'when :all_on_start option is disabled' do
-      let(:options) do
-        {
-          all_on_start: false,
-          haml_dires: ['spec/views']
-        }
-      end
+      let(:options) { { all_on_start: false } }
 
       it 'does nothing' do
         expect(subject).not_to receive(:run)
@@ -60,13 +50,25 @@ describe Guard::HamlLint do
     it { expect(subject.reload).to eq nil }
   end
 
-  xdescribe '#run_all' do
+  describe '#run_all' do
+    it 'call #run' do
+      expect(subject).to receive(:run)
+      subject.run_all
+    end
   end
 
-  xdescribe '#run_on_additions' do
+  describe '#run_on_additions' do
+    it 'call #run' do
+      expect(subject).to receive(:run).with(['spec/views/sample.html.haml'])
+      subject.run_on_additions(['spec/views/sample.html.haml'])
+    end
   end
 
-  xdescribe '#run_on_modifications' do
+  describe '#run_on_modifications' do
+    it 'call #run' do
+      expect(subject).to receive(:run).with(['spec/views/sample.html.haml'])
+      subject.run_on_modifications(['spec/views/sample.html.haml'])
+    end
   end
 
   describe '#run_on_removals' do
