@@ -20,7 +20,8 @@ module Guard
     #
     def initialize(options = {})
       super
-      @options = DEFAULT_OPTIONS.merge(haml_dires: default_haml_dirs).merge(options)
+      default_options = DEFAULT_OPTIONS.dup
+      @options = default_options.merge!(haml_dires: default_haml_dirs).merge!(options)
     end
 
     # Called once when Guard starts. Please override initialize method to init stuff.
@@ -38,8 +39,7 @@ module Guard
     #
     # @return [nil]
     #
-    def reload
-    end
+    def reload; end
 
     # Called when just `enter` is pressed
     # This method should be principally used for long action like running all specs/tests/...
@@ -75,8 +75,7 @@ module Guard
     #
     # @return [nil]
     #
-    def run_on_removals(paths)
-    end
+    def run_on_removals(paths); end
 
     private
 
