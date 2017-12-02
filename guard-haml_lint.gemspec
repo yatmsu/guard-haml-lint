@@ -5,7 +5,7 @@ require 'guard/hamllint/version'
 Gem::Specification.new do |spec|
   spec.name          = 'guard-haml_lint'
   spec.version       = Guard::HamlLintVersion::VERSION
-  spec.authors       = ['y@su']
+  spec.authors       = ['Yasuhiko Katoh']
   spec.email         = ['toyasyu@gmail.com']
 
   spec.summary       = 'Guard plugin for HAML-Lint'

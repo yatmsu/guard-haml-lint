@@ -9,23 +9,26 @@ A guard to lint your Haml.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile
 
 ```ruby
 gem 'guard-haml_lint'
 ```
 
-And then execute:
+Add the default guard-haml_lint definition to your Guardfile
 
-    $ bundle
+```bash
+$ guard init haml_lint
+```
 
-Or install it yourself as:
+Add options in Guardfile
 
-    $ gem install guard-haml_lint
-
-Add the default guard-haml_lint definition to your Guardfile:
-
-    $ guard init haml_lint
+```ruby
+guard :haml_lint, cli: '--fail-fast' do
+  watch(%r{.+\.html.*\.haml$})
+  watch(%r{(?:.+/)?\.haml-lint\.yml$}) { |m| File.dirname(m[0]) }
+end
+```
 
 ## Guardfile
 
@@ -35,6 +38,7 @@ Available options:
 
     all_on_start: true        # Check all files at Guard startup. default: true
     haml_dires: ['app/views'] # Check Directories. default: 'app/views' or '.'
+    cli: '--fail-fast --no-color' # Additional command line options to haml-lint. default: nil
 
 ## Contributing
 

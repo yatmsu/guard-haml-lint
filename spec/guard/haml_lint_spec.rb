@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe Guard::HamlLint do
   subject { described_class.new(options) }
-  let(:options) { { all_on_start: true } }
+  let(:options) { { all_on_start: true, cli: nil } }
 
   describe '#initialize' do
     context 'when default initialized' do
-      it { expect(subject.options[:all_on_start]).to be true }
+      it { expect(subject.options[:all_on_start]).to eq true }
+      it { expect(subject.options[:cli]).to eq nil }
 
       context 'when app/views directory exists' do
         before do
@@ -44,6 +45,22 @@ describe Guard::HamlLint do
         subject.start
       end
     end
+
+    context 'when correct value is specified for the :cli option' do
+      let(:options) { { cli: '--fail-fast' } }
+
+      it 'not raise error' do
+        expect { subject.start }.to_not raise_error
+      end
+    end
+
+    context 'when abnormal value is specified for the :cli option' do
+      let(:options) { { cli: '--error-option' } }
+
+      it 'raise UncaughtThrowError' do
+        expect { subject.start }.to raise_error(UncaughtThrowError)
+      end
+    end
   end
 
   describe '#reload' do
@@ -72,6 +89,6 @@ describe Guard::HamlLint do
   end
 
   describe '#run_on_removals' do
-    it { expect(subject.reload).to eq nil }
+    it { expect(subject.run_on_removals(['spec/views/sample.html.haml'])).to eq nil }
   end
 end

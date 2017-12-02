@@ -4,7 +4,8 @@ module Guard
   # This class is Guard plugin
   class HamlLint < Plugin
     DEFAULT_OPTIONS = {
-      all_on_start: true
+      all_on_start: true,
+      cli: nil
     }.freeze
 
     attr_reader :options
@@ -85,6 +86,8 @@ module Guard
     #
     def run(paths = [])
       command = ['haml-lint']
+      command << @options[:cli] if @options[:cli]
+
       if paths.empty?
         Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
         command.concat @options[:haml_dires]
