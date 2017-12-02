@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.0
+
+* Add cli option
+
 ## v0.3.0
 
 * Changed not to run when Guard run_on_removals
