@@ -1,4 +1,5 @@
 require 'guard/compat/plugin'
+require 'shellwords'
 
 module Guard
   # This class is Guard plugin
@@ -86,7 +87,7 @@ module Guard
     #
     def run(paths = [])
       command = ['haml-lint']
-      command << @options[:cli] if @options[:cli]
+      command.concat build_cli_command(@options[:cli])
 
       if paths.empty?
         Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
@@ -97,6 +98,16 @@ module Guard
       end
 
       throw :task_has_failed unless system(*command)
+    end
+
+    # @param [String] commands
+    #
+    def build_cli_command(commands)
+      case commands
+      when String then commands.shellsplit
+      when NilClass then []
+      else raise ArgumentError, 'Please specify only String for :cli option'
+      end
     end
 
     # @return [Array<String>] haml directory paths

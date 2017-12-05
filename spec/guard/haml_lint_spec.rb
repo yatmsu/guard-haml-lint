@@ -46,6 +46,14 @@ describe Guard::HamlLint do
       end
     end
 
+    context 'when more than one :cli option is specified' do
+      let(:options) { { cli: '--fail-level error --fail-fast' } }
+
+      it 'not raise error' do
+        expect { subject.start }.to_not raise_error
+      end
+    end
+
     context 'when correct value is specified for the :cli option' do
       let(:options) { { cli: '--fail-fast' } }
 
@@ -58,7 +66,15 @@ describe Guard::HamlLint do
       let(:options) { { cli: '--error-option' } }
 
       it 'raise UncaughtThrowError' do
-        expect { subject.start }.to raise_error(UncaughtThrowError)
+        expect { subject.start }.to raise_error(UncaughtThrowError, /task_has_failed/)
+      end
+    end
+
+    context 'when abnormal value is specified for the :cli option' do
+      let(:options) { { cli: ['--fail-fast'] } }
+
+      it 'raise Guard::HamlLint::ArgumentError' do
+        expect { subject.start }.to raise_error(Guard::HamlLint::ArgumentError, 'Please specify only String for :cli option')
       end
     end
   end
