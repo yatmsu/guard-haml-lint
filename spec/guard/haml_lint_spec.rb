@@ -74,7 +74,7 @@ describe Guard::HamlLint do
       let(:options) { { cli: ['--fail-fast'] } }
 
       it 'raise Guard::HamlLint::ArgumentError' do
-        expect { subject.start }.to raise_error(Guard::HamlLint::ArgumentError, 'Please specify only String for :cli option')
+        expect { subject.start }.to raise_error(ArgumentError, 'Please specify only String for :cli option')
       end
     end
   end
