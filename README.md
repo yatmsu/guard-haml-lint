@@ -36,9 +36,11 @@ Please read the [Guardfile DSL documentation](https://github.com/guard/guard#rea
 
 Available options:
 
-    all_on_start: true        # Check all files at Guard startup. default: true
-    haml_dires: ['app/views'] # Check Directories. default: 'app/views' or '.'
-    cli: '--fail-fast --no-color' # Additional command line options to haml-lint. default: nil
+```ruby
+all_on_start: true        # Check all files at Guard startup. default: true
+haml_dires: ['app/views'] # Check Directories. default: 'app/views' or '.'
+cli: '--fail-fast --no-color' # Additional command line options to haml-lint. default: nil
+```
 
 ## Contributing
 
