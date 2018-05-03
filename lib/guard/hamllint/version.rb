@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Guard
   # guard-haml_lint version class
   class HamlLintVersion

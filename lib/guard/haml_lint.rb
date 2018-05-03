@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'guard/compat/plugin'
 require 'shellwords'
 
