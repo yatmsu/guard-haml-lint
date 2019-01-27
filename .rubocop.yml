@@ -1,5 +1,5 @@
 LineLength:
-  Max: 100
+  Max: 120
 
 RegexpLiteral:
   Exclude:
@@ -9,3 +9,6 @@ RegexpLiteral:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+Style/MutableConstant:
+  Enabled: false
