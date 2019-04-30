@@ -7,8 +7,9 @@ before_install:
 rvm:
   - 2.2.10
   - 2.3.7
-  - 2.4.4
-  - 2.5.1
+  - 2.4.6
+  - 2.5.5
+  - 2.6.3
 
 script:
   - bundle exec rspec spec
