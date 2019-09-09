@@ -6,6 +6,10 @@
 
 A guard to lint your Haml.
 
+## Requirements
+
+* Ruby 2.4+
+
 ## Installation
 
 Add this line to your application's Gemfile
