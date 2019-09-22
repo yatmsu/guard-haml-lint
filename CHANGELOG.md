@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.0
+
+* Drop support for Ruby 2.3 or older
+
 ## v1.0.0
 
 * Add cli option
