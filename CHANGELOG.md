@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.x.x
+
+Drop support for HAML-Lint v0.34.x or older
+
 ## v1.1.0
 
 * Drop support for Ruby 2.3 or older
