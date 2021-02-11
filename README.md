@@ -1,5 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/guard-haml_lint.svg)](https://badge.fury.io/rb/guard-haml_lint)
-[![Build Status](https://travis-ci.org/yatmsu/guard-haml-lint.svg)](https://travis-ci.org/yatmsu/guard-haml-lint)
+[![Build Status](https://travis-ci.com/yatmsu/guard-haml-lint.svg?branch=master)](https://travis-ci.com/yatmsu/guard-haml-lint)
 [![Code Climate](https://codeclimate.com/github/yatmsu/guard-haml-lint/badges/gpa.svg)](https://codeclimate.com/github/yatmsu/guard-haml-lint)
 
 # Guard::HamlLint
