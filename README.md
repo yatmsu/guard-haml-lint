@@ -8,7 +8,7 @@ A guard to lint your Haml.
 
 ## Requirements
 
-* Ruby 2.4+
+* Ruby 2.5+
 * Haml-Lint 0.35.0+
 
 ## Installation

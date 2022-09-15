@@ -2,7 +2,8 @@
 
 ## v1.x.x
 
-Drop support for HAML-Lint v0.34.x or older
+* Drop support for HAML-Lint v0.34.x or older
+* Drop support for Ruby 2.4 or older
 
 ## v1.1.0
 
