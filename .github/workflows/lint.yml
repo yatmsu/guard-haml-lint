@@ -11,7 +11,7 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  rspec:
+  rubocop:
     runs-on: ubuntu-latest
     strategy:
       matrix:
