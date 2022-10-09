@@ -25,10 +25,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'guard', '~> 2.2'
   spec.add_dependency 'guard-compat', '~> 1.2'
-  spec.add_runtime_dependency 'haml_lint', '>= 0.35.0'
+  spec.add_runtime_dependency 'haml_lint', '~> 0.35'
 
   spec.add_development_dependency 'guard-rspec', '~> 4.7.3'
   spec.add_development_dependency 'guard-rubocop', '~> 1.5.0'
-  spec.add_development_dependency 'rake', '>= 12.3.3'
+  spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.9.0'
 end
