@@ -14,7 +14,7 @@ describe Guard::HamlLint do
           allow(File).to receive(:exist?).with('app/views').and_return(true)
         end
 
-        it { expect(subject.options[:haml_dires]).to eq ['app/views'] }
+        it { expect(subject.options[:haml_dirs]).to eq ['app/views'] }
       end
 
       context 'when app/views directory not exists' do
@@ -22,7 +22,7 @@ describe Guard::HamlLint do
           allow(File).to receive(:exist?).with('app/views').and_return(false)
         end
 
-        it { expect(subject.options[:haml_dires]).to eq ['.'] }
+        it { expect(subject.options[:haml_dirs]).to eq ['.'] }
       end
     end
   end

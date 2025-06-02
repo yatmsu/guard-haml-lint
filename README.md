@@ -42,7 +42,7 @@ Available options:
 
 ```ruby
 all_on_start: true        # Check all files at Guard startup. default: true
-haml_dires: ['app/views'] # Check Directories. default: 'app/views' or '.'
+haml_dirs: ['app/views'] # Check Directories. default: 'app/views' or '.'
 cli: '--fail-fast --no-color' # Additional command line options to haml-lint. default: nil
 ```
 

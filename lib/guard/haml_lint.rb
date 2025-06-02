@@ -25,7 +25,11 @@ module Guard
     def initialize(options = {})
       super
       default_options = DEFAULT_OPTIONS.dup
-      @options = default_options.merge!(haml_dires: default_haml_dirs).merge!(options)
+      if options.key?(:haml_dires)
+        Guard::Compat::UI.info "\e[31m[guard-haml_lint] :haml_dires is deprecated, please use :haml_dirs instead.\e[0m"
+        options[:haml_dirs] ||= options.delete(:haml_dires)
+      end
+      @options = default_options.merge!(haml_dirs: default_haml_dirs).merge!(options)
     end
 
     # Called once when Guard starts. Please override initialize method to init stuff.
@@ -93,7 +97,7 @@ module Guard
 
       if paths.empty?
         Guard::Compat::UI.info 'Running HAML-Lint for all haml files'
-        command.concat @options[:haml_dires]
+        command.concat @options[:haml_dirs]
       else
         Guard::Compat::UI.info "Running HAML-Lint for some of the haml files: #{paths.join('\n')}"
         command.concat paths
